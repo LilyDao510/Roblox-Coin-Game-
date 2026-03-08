@@ -52,7 +52,7 @@ Collect as many coins as possible to climb the global leaderboard. Every coin yo
 
 ---
 
-## Architecture
+## Game Design
 
 ```
 Roblox Game (Lua/Luau)
@@ -108,17 +108,9 @@ python app.py
 3. Add a `Part` to `Workspace` named `LeaderboardBoard` — the leaderboard GUI renders on its front face
 4. Set `BACKEND_URL` in both server scripts to your Flask server address
 
-> **Local testing:** Roblox Studio cannot reach `localhost` directly. Use [ngrok](https://ngrok.com) to create a public tunnel:
+> **Local testing:** Use [ngrok](https://ngrok.com) to create a public tunnel:
 > ```bash
 > ngrok http 5000
 > # Copy the https URL into BACKEND_URL
 > ```
 
-## API Reference
-
-| Method | Endpoint | Body / Params | Description |
-|---|---|---|---|
-| `POST` | `/score` | `{ player, userId, score }` | Submit a score (keeps highest) |
-| `GET` | `/leaderboard` | `?limit=10` | Top N players ranked by score |
-| `GET` | `/score/<name>` | — | Single player lookup |
-| `DELETE` | `/reset` | — | Clear all scores (dev only) |
